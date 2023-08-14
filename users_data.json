@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Kamil",
+    "surname": "Wololo",
+    "pin": "1234",
+    "key_user": true,
+    "is_logged": false
+  },
+  {
+    "id": 2,
+    "name": "Max",
+    "surname": "Oneal",
+    "pin": "1234",
+    "key_user": false,
+    "is_logged": false
+  },
+  {
+    "id": 3,
+    "name": "Klark",
+    "surname": "Dyiop",
+    "pin": "1234",
+    "key_user": false,
+    "is_logged": false
+  },
+  {
+    "id": 4,
+    "name": "John",
+    "surname": "Wick",
+    "pin": "1392",
+    "key_user": false,
+    "is_logged": false
+  },
+  {
+    "id": 5,
+    "name": "Fernando",
+    "surname": "Leozzo",
+    "pin": "1111",
+    "key_user": false,
+    "is_logged": false
+  }
+]
