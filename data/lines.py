@@ -16,7 +16,8 @@ class Prod_Line():
             while len(line_name) < 3:
                 print("Wrong line name, please type correct line name:")
                 line_name = input()
-            data.append(line_name)
+            line_name_new = line_name.replace(" ", "_")
+            data.append(line_name_new)
             print("List of existing machines:")
             print(data)
             with open("./data/line_data.json", mode="w") as s:
@@ -31,7 +32,8 @@ class Prod_Line():
                 while len(line_name) < 3:
                     print("Wrong line name, please type correct line name:")
                     line_name = input()
-                self.line_list.append(line_name)
+                line_name_new = line_name.replace(" ", "_")
+                self.line_list.append(line_name_new)
                 line_json_to_save = json.dumps(self.line_list, indent=2)
                 f.write(line_json_to_save)
 

@@ -63,6 +63,7 @@ class Model():
     # add model information - all inputs to get data from user about:
     # model measuring data 
 
+
     def add_model_info(self):
         # """choosing production line"""
         line = self.choose_from_data("line")
@@ -88,11 +89,20 @@ class Model():
                     "lower": lower
                     }}
             measuring_ponints_values.update(values)
-        print(line)
-        print(machine)
-        print(model_name)
-        print(measuring_ponints_values)
+        # print(line)
+        # print(machine)
+        # print(model_name)
+        # print(measuring_ponints_values)
+        model_1.add_model_to_db(line,machine,model_name,num,measuring_ponints_values)
         
+
+    def create_model_file(self,line,machine,model_name): 
+        with open("data/measuring/{}_{}_{}.txt".format(line,machine,model_name), mode="w") as f:
+
+            f.write(line)
+            f.write(machine)
+            f.write(model_name)
+            
 
 
     def add_model_to_db(self,line, machine, name, num_measure, measuring_points):
@@ -100,15 +110,39 @@ class Model():
             with open("./data/model_data.json", mode="r") as f:
                 data = json.load(f)
                 print(data)
+                self.model_dict = {
+                    "prod_line": line,
+                    "machine": machine,
+                    "name": name,
+                    "num_mesure": num_measure,
+                    "measuring_values": measuring_points
+                    }
+                with open("./data/model_data.json", mode="w") as s:
+                    data.append(self.model_dict)
+                    data_to_save = json.dumps(data, indent=2)
+                    s.write(data_to_save)
+                    
             
-   
-            with open("./data/model_data.json", mode="w") as s:
-                pass
         except:
             print("empty json")
-            with open("./data/model_data.json", mode="r") as f:
-                pass
+            with open("./data/model_data.json", mode="w") as f:
+
+                self.model_dict = {
+                    "prod_line": line,
+                    "machine": machine,
+                    "name": name,
+                    "num_mesure": num_measure,
+                    "measuring_values": measuring_points
+                    }
+                self.model_list.append(self.model_dict)
+                data_to_save = json.dumps(self.model_list, indent=2)
+                f.write(data_to_save)
+        self.create_model_file(line,machine,name)
+
+    
+
 
 model_1 = Model()
 
 model_1.add_model_info()
+

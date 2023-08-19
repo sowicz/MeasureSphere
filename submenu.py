@@ -40,9 +40,10 @@ def show_submenu():
         print("2: Log out")
         print("3: Show who is logged in")
         print("4: Start measuring")
-        print("5: Check measuring data")
+        print("5: Export measuring data")
         print("6: Add production line")
         print("7: Add production machine")
+        print("8: Add measuring model/element")
         print("q: Close program - logout all users ")
 
         user_choice_level3 = user_choice()
